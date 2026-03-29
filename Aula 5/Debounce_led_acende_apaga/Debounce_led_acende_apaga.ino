@@ -18,7 +18,6 @@ const int led = 13;      //led assume o valor da porta 4
 bool valorbotao = 1;      //Prepara a variável "valorbotao" para receber valores de 0 e 1
 bool ultimoestadobotao = 1;     //Prepara a variável "ultimoestadobotao" para receber valores de 0 e 1
 bool estadoled = 0;     //Prepara a variável "estadoled" para receber valores de 0 e 1 e inicia em 0
-bool ultimoestadoled = 0;     //Prepara a variável "ultimoestadoled" para receber valores de 0 e 1 e inicia em 0
 unsigned long timer = 0;     //Define "timer" como 0 e prepara para receber apenas valores positivos
 unsigned long debouncetimer = 50;     //Define o tempo do debounce como 50 milisegundos e prepara para receber apenas valores positivos
 
@@ -43,13 +42,13 @@ void loop() {
 
     if(valorbotao == LOW)     //Se "valorbotao" for LOW
     {
-      if(estadoled == ultimoestadoled)      //Se o estadoled for igual ao ultimoestadoled
+      if(estadoled == 0)      //Se o estadoled for igual ao ultimoestadoled
       {
-        estadoled = !ultimoestadoled;     //estadobotao assume o valor oposto de ultimoestadobotao
+        estadoled = 1;     //estadobotao assume o valor oposto de ultimoestadobotao
       }
       else      //Se não
       {
-        estadoled = ultimoestadobotao;      //estadobotao assume o mesmo valor de ultimoestadobotao
+        estadoled = 0;      //estadobotao assume o mesmo valor de ultimoestadobotao
       }
     }
     }
