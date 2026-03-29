@@ -14,17 +14,14 @@ Versão: 1.0
 
 ************************************************************************ */
 const int botao = 2;      //botao assume o valor da porta 2
-const int led = 13;      //led assume o valor da porta 4
+unsigned long int contador = 0;      //Inicia a variável contador com o valor de 0 e prepara para receber muitos valores positivos
 bool valorbotao = 1;      //Prepara a variável "valorbotao" para receber valores de 0 e 1
 bool ultimoestadobotao = 1;     //Prepara a variável "ultimoestadobotao" para receber valores de 0 e 1
-bool estadoled = 0;     //Prepara a variável "estadoled" para receber valores de 0 e 1 e inicia em 0
-bool ultimoestadoled = 0;     //Prepara a variável "ultimoestadoled" para receber valores de 0 e 1 e inicia em 0
 unsigned long timer = 0;     //Define "timer" como 0 e prepara para receber apenas valores positivos
 unsigned long debouncetimer = 50;     //Define o tempo do debounce como 50 milisegundos e prepara para receber apenas valores positivos
 
 void setup() {
   pinMode(botao, INPUT_PULLUP);     //Define botao como entrada com pull up
-  pinMode(led, OUTPUT);     //Define o led como uma saída
   Serial.begin(115200);     //Inicializa o monitor serial com a velocidade de 1152200
 }
 
@@ -46,15 +43,11 @@ void loop() {
     {
       if(estadoled == ultimoestadoled)      //Se o estadoled for igual ao ultimoestadoled
       {
-        estadoled = !ultimoestadoled;     //estadobotao assume o valor oposto de ultimoestadobotao
-      }
-      else      //Se não
-      {
-        estadoled = ultimoestadobotao;      //estadobotao assume o mesmo valor de ultimoestadobotao
-      }
-    }
+       contador++;     //Adiciona 1 ao contador
+       Serial.print("contagem: ");     //Imprime no monitor serial "contagem: "
+       Serial.println(contador);     //Imprime no monitor serial o valor do contador
+     }
     }
   }
-  digitalWrite(led, estadoled);
   ultimoestadobotao = valorlido;      //Define o "ultimoestadobotao" com o valor de "valorlido"
 }
