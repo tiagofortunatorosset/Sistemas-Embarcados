@@ -25,7 +25,6 @@ unsigned long debouncetimer = 50;     //Define o tempo do debounce como 50 milis
 void setup() {
   pinMode(botao, INPUT_PULLUP);     //Define botao como entrada com pull up
   pinMode(led, OUTPUT);     //Define o led como uma saída
-  Serial.begin(115200);     //Inicializa o monitor serial com a velocidade de 1152200
 }
 
 void loop() {
