@@ -9,7 +9,7 @@ Professor: Marcos Antonio Jeremias Coelho
 Programa: Debounce com led acende/apaga
 
 Autor: Tiago Fortunato Rosset
-Data: 29/03/2026
+Data: 28/03/2026
 Versão: 1.0
 
 ************************************************************************ */
@@ -39,14 +39,12 @@ void loop() {
     {
       valorbotao = valorlido;     //"valorbotao" passa a ter o valor de "valorlido"
 
-    if(valorbotao == LOW)     //Se "valorbotao" for LOW
-    {
-      if(estadoled == ultimoestadoled)      //Se o estadoled for igual ao ultimoestadoled
+      if(valorbotao == LOW)     //Se "valorbotao" for LOW
       {
        contador++;     //Adiciona 1 ao contador
        Serial.print("contagem: ");     //Imprime no monitor serial "contagem: "
        Serial.println(contador);     //Imprime no monitor serial o valor do contador
-     }
+      }
     }
   }
   ultimoestadobotao = valorlido;      //Define o "ultimoestadobotao" com o valor de "valorlido"
