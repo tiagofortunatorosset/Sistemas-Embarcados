@@ -8,8 +8,8 @@ Professor: Marcos Antonio Jeremias Coelho
 
 Programa: Botão com Pull Up e Leds
 
-Autor: Tiago Fortuna Rosset
-Data: 23/03/2025
+Autor: Tiago Fortunato Rosset
+Data: 23/03/2026
 Versão: 1.0
 
 ************************************************************************ */
