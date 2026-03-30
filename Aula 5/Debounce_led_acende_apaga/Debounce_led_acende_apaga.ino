@@ -24,6 +24,7 @@ unsigned long debouncetimer = 50;     //Define o tempo do debounce como 50 milis
 void setup() {
   pinMode(botao, INPUT_PULLUP);     //Define botao como entrada com pull up
   pinMode(led, OUTPUT);     //Define o led como uma saída
+  digitalWrite(led, estadoled);
 }
 
 void loop() {
@@ -42,14 +43,7 @@ void loop() {
 
     if(valorbotao == LOW)     //Se "valorbotao" for LOW
     {
-      if(estadoled == 0)      //Se o estadoled for igual ao ultimoestadoled
-      {
-        estadoled = 1;     //estadobotao assume o valor oposto de ultimoestadobotao
-      }
-      else      //Se não
-      {
-        estadoled = 0;      //estadobotao assume o mesmo valor de ultimoestadobotao
-      }
+        estadoled = !estadoled;     //estadobotao assume o valor oposto de ultimoestadobota
     }
     }
   }
