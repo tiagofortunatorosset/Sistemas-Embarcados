@@ -6,7 +6,7 @@ Disciplina: Sistemas Embarcados
 Turma: 3191
 Professor: Marcos Antonio Jeremias Coelho
 
-Programa: Debounce com contador binário com leds
+Programa: Sirene ligada por botões
 
 Autor: Tiago Fortunato Rosset
 Data: 30/03/2026
@@ -15,12 +15,11 @@ Versão: 1.0
 ************************************************************************ */
 const int botao1 = 2;     //botao assume o valor da porta 2
 const int botao2 = 3;     //botao assume o valor da porta 3
-const int led1 = 8;
-const int led2 = 9;
-const int led3 = 10;
-const int led4 = 11;
-int contador = 0;     //Cria um contador que inicia no valor 0
-bool teste = 0;
+const int led1 = 8;     //led1 assume o valor da porta 8
+const int led2 = 9;     //led2 assume o valor da porta 9
+const int led3 = 10;     //led3 assume o valor da porta 10
+const int led4 = 11;     //led4 assume o valor da porta 11
+bool teste = 0;      //Cria uma variável booleana chamada teste
 bool valorbotao1 = HIGH;     //Prepara a variável "valorbotao1" para receber valores de 0 e 1
 bool valorbotao2 = HIGH;     //Prepara a variável "valorbotao2" para receber valores de 0 e 1
 bool ultimoestadobotao1 = 1;     //Prepara a variável "ultimoestadobotao1" para receber valores de 0 e 1
@@ -56,8 +55,8 @@ void loop() {
 
     if(valorbotao1 == LOW)     //Se "valorbotao" for LOW
     {
-      teste = 1;
-      timer3 = millis();
+      teste = 1;      //Define a variável "teste" como 1
+      timer3 = millis();      //"timer3" tem seu valor atualizado para o de millis()
     }
     }
   }
@@ -74,30 +73,30 @@ void loop() {
 
     if(valorbotao2 == LOW)     //Se "valorbotao2" for LOW
     {
-      teste = 0;
+      teste = 0;      //Define a variável "teste" como 0
     }
     }
   }
-  if(teste == 1){
+  if(teste == 1){      //Se "teste" for 1
       if((millis() - timer3) == 300){
-        digitalWrite(led1, 0);
-        digitalWrite(led2, 1);
-        digitalWrite(led3, 0);
-        digitalWrite(led4, 1);
+        digitalWrite(led1, 0);      //Define o valor do led1 como LOW
+        digitalWrite(led2, 1);      //Define o valor do led2 como HIGH
+        digitalWrite(led3, 0);      //Define o valor do led3 como LOW
+        digitalWrite(led4, 1);      //Define o valor do led4 como HIGH
       }
       if((millis() - timer3) >= 600){
-        digitalWrite(led1, 1);
-        digitalWrite(led2, 0);
-        digitalWrite(led3, 1);
-        digitalWrite(led4, 0);
+        digitalWrite(led1, 1);      //Define o valor do led1 como HIGH
+        digitalWrite(led2, 0);      //Define o valor do led2 como LOW
+        digitalWrite(led3, 1);      //Define o valor do led3 como HIGH
+        digitalWrite(led4, 0);      //Define o valor do led4 como LOW
         timer3 = millis();
       }
    }
-  if(teste == 0){
-      digitalWrite(led1, 0);
-      digitalWrite(led2, 0);
-      digitalWrite(led3, 0);
-      digitalWrite(led4, 0);
+  if(teste == 0){      //Se "teste" for 0
+      digitalWrite(led1, 0);      //Define o valor do led1 como LOW
+      digitalWrite(led2, 0);      //Define o valor do led2 como LOW
+      digitalWrite(led3, 0);      //Define o valor do led3 como LOW
+      digitalWrite(led4, 0);      //Define o valor do led4 como LOW
     }
   ultimoestadobotao1 = valorlido1;      //Define o "ultimoestadobotao1" com o valor de "valorlido1"
   ultimoestadobotao2 = valorlido2;      //Define o "ultimoestadobotao2" com o valor de "valorlido2"
