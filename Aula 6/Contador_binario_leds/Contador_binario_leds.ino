@@ -15,10 +15,10 @@ Versão: 1.0
 ************************************************************************ */
 const int botao1 = 2;     //botao assume o valor da porta 2
 const int botao2 = 3;     //botao assume o valor da porta 3
-const int led1 = 8;
-const int led2 = 9;
-const int led3 = 10;
-const int led4 = 11;
+const int led1 = 8;     //led1 assume o valor da porta 8
+const int led2 = 9;     //led2 assume o valor da porta 9
+const int led3 = 10;     //led3 assume o valor da porta 10
+const int led4 = 11;     //led4 assume o valor da porta 11
 int contador = 0;     //Cria um contador que inicia no valor 0
 bool valorbotao1 = HIGH;     //Prepara a variável "valorbotao1" para receber valores de 0 e 1
 bool valorbotao2 = HIGH;     //Prepara a variável "valorbotao2" para receber valores de 0 e 1
